@@ -16,9 +16,10 @@ The port displayed here are the default one in the .env file.
 
  1. Clone the repo.
  2. Review .env and update passwords, project name, ...
- 3. Build  `docker-compose build --pull --no-cache`
- 4. Start all containers in background `docker-compose up -d`
- 5. Check if the containers are running: `docker-compose ps`. It should looks like this:
+ 3. Update apache site.conf (see below Apache site.conf).
+ 4. Build  `docker-compose build --pull --no-cache`
+ 5. Start all containers in background `docker-compose up -d`
+ 6. Check if the containers are running: `docker-compose ps`. It should looks like this:
 
 |NAME             |COMMAND   |SERVICE  | STATUS | PORTS|
 |-----------------|----------|---------|--------|------|
@@ -27,9 +28,8 @@ The port displayed here are the default one in the .env file.
 |PROJECT_NAME-frontend |"docker-entrypoint.s…"|frontend| running | 127.0.0.1:3000->3000/tcp |
 |PROJECT_NAME-server |"docker-php-entrypoi…"|server| running | 127.0.0.1:8101->80/tcp |
 
-
- 6. ssh to the backend server to create your symfony app.
- 7. Update apache site.conf (see below).
+ 7. ssh to the backend server to create your symfony app.
+ 
  
 ## Directories structure
 ```markdown
@@ -111,8 +111,8 @@ APP_BACKEND_PORT is defined in the .env.
 
 ## DB container
 SSH into the container : `docker-compose exec db_server bash`
-Login to the database : `mariadb -u<DB_USER> -p`
-
+Then login to the database : `mariadb -u<DB_USER> -p`
+The password is <DB_PASSWORD> in the .env file.
 
 ## DB admin container
 
