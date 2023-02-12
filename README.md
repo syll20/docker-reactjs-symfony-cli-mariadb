@@ -4,7 +4,9 @@
 ```mermaid
 graph LR
 B -- :8101 --> A(Backend: Symfony cli, PHP, Apache + Dockerfile)  
-B((Browser)) -- :3000 --> C(Frontend: Reactjs, nginx + Dockerfile)
+B((Browser)) -- :3000 --> C(Front end: Reactjs, nginx + Dockerfile)
+A -- API --> C
+C -- API --> A 
 B -- :8102 --> D(phpMyAdmin)
 A --> E(Database: MariaDB)
 D --> E
